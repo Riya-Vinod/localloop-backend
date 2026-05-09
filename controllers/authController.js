@@ -38,6 +38,7 @@ exports.register = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('Auth Controller Error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -77,6 +78,7 @@ exports.login = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('Auth Controller Error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -87,6 +89,7 @@ exports.getMe = async (req, res) => {
     const user = await User.findById(req.user._id);
     res.json({ success: true, user });
   } catch (error) {
+    console.error('Auth Controller Error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
